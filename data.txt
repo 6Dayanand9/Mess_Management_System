@@ -1,0 +1,5 @@
+
+id :101,name :aaa,fees_paid :2,meal per day :200
+id :102,name :fff,fees_paid :2,meal per day :200
+id :103,name :fgff,fees_paid :2,meal per day :200
+id :104,name :vvv,fees_paid :2,meal per day :100
