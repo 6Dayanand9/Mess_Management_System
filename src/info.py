@@ -30,7 +30,7 @@ class MemberInfo:
         self.__mealPerDay = mp
     
     def __str__(self):
-        return "id :"+str(self.__id)+"\nname :"+self.__nm+"\nfees_paid :"+str(self.__fees_paid)+"\nmeal per day :"+str(self.__mealPerDay)
+        return "id :"+str(self.__id)+","+"name :"+self.__nm+","+"fees_paid :"+str(self.__fees_paid)+","+"meal per day :"+str(self.__mealPerDay)+"\n"
 #testing
 if(__name__)=="__main__":
     I = MemberInfo(101,"daya",1,1000)
