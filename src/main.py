@@ -20,3 +20,7 @@ if(__name__)=="__main__":
         
         elif choice==2:
             k.display()
+        
+        elif choice==3:
+            id = int(input("Enter Id to Search"))
+            k.searchEmp(id)
