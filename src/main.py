@@ -24,3 +24,7 @@ if(__name__)=="__main__":
         elif choice==3:
             id = int(input("Enter Id to Search"))
             k.searchEmp(id)
+        
+        elif choice==4:
+            id = int(input("Enter Id to Search"))
+            k.DeleteEmp(id)
