@@ -1,4 +1,5 @@
 import os
+from tabulate import tabulate
 class Mgmt:
 
     def addEmp(self,e):
@@ -74,7 +75,7 @@ class Mgmt:
                 
                 else:
                     ch = input("Do You want to change Name (y/n):")
-                    
+
                     if ch.lower()=="y":
                         name = input("Enter New Name")
                         splitted_data=e.split(',')
@@ -100,4 +101,30 @@ class Mgmt:
         
         else:
             print("record Not Found")
+    
+    def sortCustomer(self,field):
+        if os.path.exists('data.txt'):
+            with open ("data.txt",'r') as fp:
+                customer_list = []
+                for line in fp:
+                    customer_list.append(line.strip().split(','))
+                
+                if field=="id":
+                    customer_list.sort(key=lambda x:int(x[0]))
+                
+                elif field=="name":
+                    customer_list.sort(key=lambda x: (x[1]).lower())
+                
+                elif field=="fees_paid":
+                    customer_list.sort(key= lambda x:int(x[2]))
+                
+                else:
+                    print('choose the correct input as :id,name,fees_paid')
+                
+                headers= ['ID','Name','Fees_Paid','Meals Per Day']
+                print(tabulate(customer_list,headers=headers,tablefmt='grid'))
+        else:
+            print("File Not Found or Wrong File Name")
+                
+
 
