@@ -3,19 +3,24 @@ from tabulate import tabulate
 class Mgmt:
 
     def addEmp(self,e):
+
         fp = open("data.txt",'a')
         fp.write(str(e))
         fp.close()
     
     def display(self):
+
         if(os.path.exists("data.txt")):
             fp = open("data.txt",'r')
             # print(fp.read())  # to display all customer
             #to display customer one by one
             for member in fp:
                 print(member)
+        else:
+            print("Wrong File Name or No such file Present in Directory")
     
     def searchEmp(self,id):
+
         with open("data.txt",'r') as fp:
 
             for e in fp:
@@ -32,6 +37,7 @@ class Mgmt:
 
 
     def DeleteEmp(self,id):
+
         records = []
         found = False
 
@@ -63,6 +69,7 @@ class Mgmt:
         
 
     def UpdateCustomer(self,id):
+
         myrecords = []
         found=False
         with open ("data.txt",'r') as fp:
@@ -103,9 +110,12 @@ class Mgmt:
             print("record Not Found")
     
     def sortCustomer(self,field):
+
         if os.path.exists('data.txt'):
+
             with open ("data.txt",'r') as fp:
                 customer_list = []
+
                 for line in fp:
                     customer_list.append(line.strip().split(','))
                 
@@ -123,6 +133,7 @@ class Mgmt:
                 
                 headers= ['ID','Name','Fees_Paid','Meals Per Day']
                 print(tabulate(customer_list,headers=headers,tablefmt='grid'))
+
         else:
             print("File Not Found or Wrong File Name")
                 
