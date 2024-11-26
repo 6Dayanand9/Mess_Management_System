@@ -8,6 +8,10 @@ if(__name__)=="__main__":
         print("="*20)
         print("Enter 1 to add Emp")
         print("Enter 2 to display all Emp")
+        print("Enter 3 to Search Customer By id")
+        print("Enter 4 to Delete Customer By Id")
+        print("Enter 5 to Update Customer By Id")
+        print("Enter 6 to Sort Customer by Id,Name,Fees_Paid")
         print("="*20)
         choice = int(input("Enter Choice :"))
         if choice == 1:
@@ -28,3 +32,11 @@ if(__name__)=="__main__":
         elif choice==4:
             id = int(input("Enter Id to Search"))
             k.DeleteEmp(id)
+        
+        elif choice==5:
+            id = int(input("Enter id to update"))
+            k.UpdateCustomer(id)
+        
+        elif choice == 6:
+            k.sortCustomer(input("Sort by (id, name, fees_paid): "))
+            
