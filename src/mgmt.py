@@ -106,6 +106,7 @@ class Mgmt:
                     ch = input("Do You want to change Name (y/n):")
 
                     if ch.lower()=="y":
+
                         name = input("Enter New Name")
                         splitted_data=e.split(',')
                         splitted_data[1]=name
@@ -115,6 +116,7 @@ class Mgmt:
                     ch = input("Do You want to change fees_paid (y/n):")
 
                     if ch.lower()=="y":
+                        
                         fees = input("Enter fees paid")
                         splitted_data=e.split()
                         splitted_data[2]=fees
