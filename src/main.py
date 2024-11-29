@@ -17,10 +17,21 @@ if(__name__)=="__main__":
         if choice == 1:
             id = int(input("Enter ID :"))
             nm = input("Enter Name :")
+            Total_Meals = int(input("Enter Total_Meal_Per_Month(30/60)"))
+            if Total_Meals==30:
+                Total_fee = 3000
+            elif Total_Meals==60:
+                Total_fee = 4500
             fees_paid = int(input("Enter Fees Paid"))
-            meal_per_day = int(input("Enter Meal per day(1/2/3)"))
-            m = MemberInfo(id,nm,fees_paid,meal_per_day)
-            k.addEmp(m)
+            remaining_fees = Total_fee - fees_paid
+            
+            phoneno = input("Enter Phone No(10 digits)")
+            while len(phoneno)!=10 or not phoneno.isdigit():
+                print('Invalid input! Please enter a valid 10-digit phone number.')
+                phoneno = input("Enter Phone No(10 digits)")
+                    
+            m = MemberInfo(id,nm,Total_Meals,Total_fee,fees_paid,remaining_fees,phoneno)
+            k.addEmp(m) 
         
         elif choice==2:
             k.display()
@@ -40,3 +51,5 @@ if(__name__)=="__main__":
         elif choice == 6:
             k.sortCustomer(input("Sort by (id, name, fees_paid): "))
             
+        elif choice ==7:
+            k.FilterCustomer()
