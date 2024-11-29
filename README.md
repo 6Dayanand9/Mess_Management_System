@@ -1,1 +1,1 @@
-# Mess Management System using Python and gui Tkinter
+# Mess Management System using Python 
