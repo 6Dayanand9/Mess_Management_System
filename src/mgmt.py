@@ -11,23 +11,35 @@ class Mgmt:
     def display(self):
 
         if(os.path.exists("data.txt")):
+            table_data = []
             fp = open("data.txt",'r')
             # print(fp.read())  # to display all customer
             #to display customer one by one
             for member in fp:
-                print(member)
+                data = member.strip().split(',')
+                table_data.append(data)
+            
+            fp.close()
+            
+            headers= ['ID','Name','Meals Per Month','Total Fees','Fees Paid','Fees Remaining','PhoneNo']
+            print(tabulate(table_data,headers=headers,tablefmt='grid'))
+
         else:
             print("Wrong File Name or No such file Present in Directory")
     
     def searchEmp(self,id):
 
         with open("data.txt",'r') as fp:
-
-            for e in fp:
+            table_data = []
+            for member in fp:
                 try:
-                    e.index(str(id),0,4)
+                    member.index(str(id),0,4)
                     print("record found")
-                    print(e)
+                    #print(e)
+                    data = member.strip().split(',')
+                    table_data.append(data)
+                    headers= ['ID','Name','Meals Per Month','Total Fees','Fees Paid','Fees Remaining','PhoneNo']
+                    print(tabulate(table_data,headers=headers,tablefmt='grid'))
                     break
                 except ValueError:
                     pass
@@ -136,6 +148,9 @@ class Mgmt:
 
         else:
             print("File Not Found or Wrong File Name")
+    
+    def FilterCustomer(self):
+        pass
                 
 
 
