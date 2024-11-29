@@ -6,6 +6,7 @@ if(__name__)=="__main__":
 
     k = Mgmt()
     while choice!=10:
+        print()
         print("="*20)
         print("Enter 1 to add Emp")
         print("Enter 2 to display all Emp")
@@ -14,9 +15,11 @@ if(__name__)=="__main__":
         print("Enter 5 to Update Customer By Id")
         print("Enter 6 to Sort Customer by Id,Name,Fees_Paid")
         print("="*20)
+        print()
         choice = int(input("Enter Choice :"))
         if choice == 1:
             #============================================================================================
+            
             id = int(input("Enter ID :"))
             nm = input("Enter Name :")
             Total_Meals = int(input("Enter Total_Meal_Per_Month(30/60)"))
@@ -37,13 +40,21 @@ if(__name__)=="__main__":
             m = MemberInfo(id,nm,Total_Meals,Total_fee,fees_paid,remaining_fees,phoneno)
             k.addEmp(m) 
             #============================================================================================
-            
+
         elif choice==2:
             k.display()
         
         elif choice==3:
-            id = int(input("Enter Id to Search"))
-            k.searchEmp(id)
+            try:
+                id = int(input("Enter Id to Search"))
+                k.searchEmp(id)
+            except ValueError:
+                print()
+                print("***************************")
+                print("\033[1mERROR:\033[0m Enter Id in Integer Format")
+                print("***************************")
+                print()
+                
         
         elif choice==4:
             id = int(input("Enter Id to Search"))
