@@ -59,7 +59,7 @@ class Mgmt:
                 for e in fp:
                     try:
                         e.index(str(id),0,4)
-                        #print(e)
+                        k=e
 
                     except ValueError:
                         records.append(e)
@@ -68,10 +68,20 @@ class Mgmt:
                         found = True
 
             if(found == True):
-                with open("data.txt",'w') as fp:
-                    for e in records:
-                        fp.write(e)
-                print("id Deleted")
+                
+                table_data = [k.strip().split(',')]
+                headers = ['ID', 'Name', 'Meals Per Month', 'Total Fees', 'Fees Paid', 'Fees Remaining', 'PhoneNo']
+                print(tabulate(table_data, headers=headers, tablefmt='grid'))
+
+                confirmation = input("Do u really want to delete customer(yes/no)")
+                if confirmation.lower() == "yes" or confirmation.lower() == 'y':
+                    with open("data.txt",'w') as fp:
+                        for e in records:
+                            fp.write(e)
+                    print("id Deleted")
+                
+                else:
+                    print("Deletion cancel")
 
             else:
                 print("record Not Found")
