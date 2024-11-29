@@ -3,6 +3,7 @@ from mgmt import Mgmt
 
 if(__name__)=="__main__":
     choice = 0
+
     k = Mgmt()
     while choice!=10:
         print("="*20)
@@ -15,13 +16,16 @@ if(__name__)=="__main__":
         print("="*20)
         choice = int(input("Enter Choice :"))
         if choice == 1:
+            #============================================================================================
             id = int(input("Enter ID :"))
             nm = input("Enter Name :")
             Total_Meals = int(input("Enter Total_Meal_Per_Month(30/60)"))
+
             if Total_Meals==30:
                 Total_fee = 3000
             elif Total_Meals==60:
                 Total_fee = 4500
+            
             fees_paid = int(input("Enter Fees Paid"))
             remaining_fees = Total_fee - fees_paid
             
@@ -29,10 +33,11 @@ if(__name__)=="__main__":
             while len(phoneno)!=10 or not phoneno.isdigit():
                 print('Invalid input! Please enter a valid 10-digit phone number.')
                 phoneno = input("Enter Phone No(10 digits)")
-                    
+            #--------------------------------------------------------------------------------------------
             m = MemberInfo(id,nm,Total_Meals,Total_fee,fees_paid,remaining_fees,phoneno)
             k.addEmp(m) 
-        
+            #============================================================================================
+            
         elif choice==2:
             k.display()
         
