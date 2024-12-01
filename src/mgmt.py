@@ -1,5 +1,6 @@
 import os
 from tabulate import tabulate
+# -----------------------------------------------------------------------------------------------------
 class Mgmt:
 
     def addEmp(self,e):
@@ -7,7 +8,8 @@ class Mgmt:
         fp = open("data.txt",'a')
         fp.write(str(e))
         fp.close()
-    
+# =====================================================================================================
+
     def display(self):
 
         if(os.path.exists("data.txt")):
@@ -26,6 +28,8 @@ class Mgmt:
 
         else:
             print("Wrong File Name or No such file Present in Directory")
+
+# =====================================================================================================
     
     def searchEmp(self,id):
 
@@ -47,6 +51,7 @@ class Mgmt:
             else:
                 print("record Not found")
 
+# =====================================================================================================
 
     def DeleteEmp(self,id):
 
@@ -89,6 +94,7 @@ class Mgmt:
         else: 
             print("Invalid ID")
         
+# =====================================================================================================
 
     def UpdateCustomer(self,id):
 
@@ -118,8 +124,16 @@ class Mgmt:
                     if ch.lower()=="y":
                         
                         fees = input("Enter fees paid")
-                        splitted_data=e.split()
-                        splitted_data[2]=fees
+                         
+                        splitted_data=e.split(',')
+
+                        if splitted_data[4]=="30":
+                            total_fees=3000
+                        else:
+                            total_fees=4500
+                        remaining_fees = total_fees - int(fees)
+                        splitted_data[4]=fees
+                        splitted_data[5]=str(remaining_fees)
                         k = ','.join(splitted_data)
                         myrecords.append(k)
                     
@@ -132,6 +146,8 @@ class Mgmt:
         
         else:
             print("record Not Found")
+
+# =====================================================================================================
     
     def sortCustomer(self,field):
 
@@ -161,8 +177,29 @@ class Mgmt:
         else:
             print("File Not Found or Wrong File Name")
     
-    def FilterCustomer(self):
-        pass
-                
+# =====================================================================================================
+    
+    def FilterCustomer(self,condition):
+        if os.path.exists('data.txt'):
+
+            with open ('data.txt','r') as fp:
+                table_data = []
+                headers=['ID','NAME','MEALS PER MONTH','TOTAL FEES','FEES PAID','REMAINING FEES','PHONENO']
+
+                for line in fp:
+                    record = line.strip().split(',')
+                    if eval(condition):
+                        table_data.append(record)
+
+                if table_data:
+                    print('Filtered Employees :')
+                    print(tabulate(table_data,headers=headers,tablefmt='grid'))
+
+                else:
+                    print('No record Found')
+        else:
+            print("Wrong File Name Or No Such File Present In Directory")
+
+# =====================================================================================================
 
 
