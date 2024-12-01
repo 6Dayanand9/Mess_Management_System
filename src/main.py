@@ -68,4 +68,5 @@ if(__name__)=="__main__":
             k.sortCustomer(input("Sort by (id, name, fees_paid): "))
             
         elif choice ==7:
-            k.FilterCustomer()
+            condition=input("Enter Condition :")
+            k.FilterCustomer(condition)
