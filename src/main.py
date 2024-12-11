@@ -13,7 +13,9 @@ if(__name__)=="__main__":
         print("Enter 3 to Search Customer By id")
         print("Enter 4 to Delete Customer By Id")
         print("Enter 5 to Update Customer By Id")
-        print("Enter 6 to Sort Customer by Id,Name,Fees_Paid")
+        print("Enter 6 to Sort Customer by Id,Name,Fees_Paid,Remaining_Fees")
+        print("Enter 7 to Filter Customer on Condition")
+        print("Enter 8 to get the info of all Customer with Remaining Fees ")
         print("="*20)
         print()
         choice = int(input("Enter Choice :"))
@@ -65,8 +67,11 @@ if(__name__)=="__main__":
             k.UpdateCustomer(id)
         
         elif choice == 6:
-            k.sortCustomer(input("Sort by (id, name, fees_paid): "))
+            k.sortCustomer(input("Sort by (id, name, fees_paid,Remaining_Fees): "))
             
         elif choice ==7:
-            condition=input("Enter Condition :")
+            condition=input("Enter Condition e.g., 'int(record[5]) > 1000'):")
             k.FilterCustomer(condition)
+        
+        elif choice ==  8:
+            k.Remaining_Fees()
